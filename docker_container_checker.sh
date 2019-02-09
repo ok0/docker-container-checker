@@ -10,6 +10,10 @@ fi
 
 # PUT POST_URL
 POST_URL=$2
+if [ "${POST_URL}" == "" ]; then
+	echo "PUT POST_URL."
+	exit 1
+fi
 
 CONTAINER_PS=($(docker ps -a | grep $CONTAINER 2> /dev/null))
 CONTAINER_CID=${CONTAINER_PS[0]}
